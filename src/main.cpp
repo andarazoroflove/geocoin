@@ -30,7 +30,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x2febfbc401a39d77dd2ef85ffca08d5df4971385edad336ad9f2bdd1a2589440");
+uint256 hashGenesisBlock("0x");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // GeoCoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -835,17 +835,17 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = 0 * COIN; 
 
-if(nHeight < 10)   
-			nSubsidy = 100000 * COIN; //1M Coin Premine.
-		else if(nHeight > 10)
+if(nHeight < 11)   
+			nSubsidy = 2500000 * COIN; //25M (2.5%) Coin Premine to ensure valuelessness.
+		else if(nHeight > 36)
 			nSubsidy = 33 * COIN; // GeoCoin: 33
 			
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 60 * 60; // GeoCoin: 60 minutes (Litecoin: 3.5 days)
-static const int64 nTargetSpacing = 40; // GeoCoin: 40 seconds (~1/4x Litecoin: 2.5 minutes)
-static const int64 nInterval = nTargetTimespan / nTargetSpacing; // GeoCoin: 90 blocks
+static const int64 nTargetTimespan = 60 * 60; // GeoCoin: 60 minutes 
+static const int64 nTargetSpacing = 3 * 60; // GeoCoin: 3 minutes
+static const int64 nInterval = nTargetTimespan / nTargetSpacing; // GeoCoin: 20 blocks
 
 //
 // minimum amount of work that could possibly be required nTime after
@@ -862,10 +862,10 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
     bnResult.SetCompact(nBase);
     while (nTime > 0 && bnResult < bnProofOfWorkLimit)
     {
-        // Maximum 400% adjustment...
-        bnResult *= 4;
+        // Maximum 100% adjustment...
+        bnResult *= 1;
         // ... in best-case exactly 4-times-normal target time
-        nTime -= nTargetTimespan*4;
+        nTime -= nTargetTimespan*1;
     }
     if (bnResult > bnProofOfWorkLimit)
         bnResult = bnProofOfWorkLimit;
@@ -1998,7 +1998,7 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
   
         // Genesis block
-        const char* pszTimestamp = "Apple Discloses Law Enforcement Requests For Cloud Data - CRN News";
+        const char* pszTimestamp = "GeoCoin - A Nerdy Gift to the GeoCaching Community from adam m!";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2011,9 +2011,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1371505882;
+        block.nTime    = 1376326640;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 1066528;
+        block.nNonce   = 0;
 
         if (fTestNet)
         {
@@ -2025,7 +2025,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("%s\n", block.GetHash().ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x60e77932b24c91f4916fd3caa7b8bc0a047a76107516a79d2f619ad954aa55d7"));
+        assert(block.hashMerkleRoot == uint256("0x"));
 
         // If genesis block hash does not match, then generate new genesis hash.
         if (true && block.GetHash() != hashGenesisBlock)
