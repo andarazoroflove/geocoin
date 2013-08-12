@@ -1,21 +1,37 @@
-GeoCoin 2.0
+GeoCoin 2.5
 
-Simple cryptographic tokens for sharing and trading!
-
-This release is wholly different from GeoCoin 1.0.
-It includes the following refinements:
-
-*33 Coins Per Block, forever and ever
-*1 Billion Max Coins
-*140 Character Transaction Messaging
+Simple cryptographic tokens with messaging for sharing and trading!
 
 Defaults:
 
 *RPC PORT 3870
+
 *P2P PORT 3871
+
 *TESTNET PORT 13871
-*%appdata%/geocoin.conf
+
+*%appdata%/geocoin/geocoin.conf
+
 *addnode=andarazoroflove.org
+
+
+This release is graphically different from GeoCoin 2.0.
+It includes the following refinements:
+
+New Graphics! Program updated with Caching themed icons and lingo.
+
+Built-in Coin Creation System Improvements (Virtual Caching) 
+
+QR Code Support
+
+One-click Access to Command Line Console
+
+Another thing you may notice is the decimals are gone--but really
+that's just trickery. They are still there, but only viewable using
+the Command Line Console for easy math, so values may go up or down
+by a coin or two in your Collected balance.
+
+GeoCoin has its own Block Explorer at: https://andarazoroflove.org/explorer/geocoin
 
 GeoCoin is Free and Open Source and should not be
 considered "currency." GeoCoin is designed to be easy

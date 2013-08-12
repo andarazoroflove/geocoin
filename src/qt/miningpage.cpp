@@ -172,20 +172,20 @@ void MiningPage::readProcessOutput()
                 ui->list->scrollToBottom();
             }
 
-            if (line.contains("(yay!!!)"))
-                reportToList("Share accepted", SHARE_SUCCESS, getTime(line));
-            else if (line.contains("(booooo)"))
-                reportToList("Share rejected", SHARE_FAIL, getTime(line));
+            if (line.contains("(+1 :D)"))
+                reportToList("Found It!", SHARE_SUCCESS, getTime(line));
+            else if (line.contains("(argh!)"))
+                reportToList("Did Not Find", SHARE_FAIL, getTime(line));
             else if (line.contains("LONGPOLL detected new block"))
                 reportToList("LONGPOLL detected a new block", LONGPOLL, getTime(line));
             else if (line.contains("Supported options:"))
-                reportToList("Miner didn't start properly. Try checking your settings.", ERROR, NULL);
+                reportToList("Event Caching didn't start properly. Try checking your settings.", ERROR, NULL);
             else if (line.contains("The requested URL returned error: 403"))
                 reportToList("Couldn't connect. Please check your username and password.", ERROR, NULL);
             else if (line.contains("HTTP request failed"))
                 reportToList("Couldn't connect. Please check pool server and port.", ERROR, NULL);
             else if (line.contains("JSON-RPC call failed"))
-                reportToList("Couldn't communicate with server. Retrying in 30 seconds.", ERROR, NULL);
+                reportToList("Couldn't communicate with Event server. Retrying in 30 seconds.", ERROR, NULL);
             else if (line.contains("thread ") && line.contains("khash/s"))
             {
                 QString threadIDstr = line.at(line.indexOf("thread ")+7);
@@ -212,16 +212,16 @@ void MiningPage::minerError(QProcess::ProcessError error)
 {
     if (error == QProcess::FailedToStart)
     {
-        reportToList("Miner failed to start. Make sure you have the minerd executable and libraries in the same directory as GeoCoin-Qt.", ERROR, NULL);
+        reportToList("Event Caching failed to start! You need Pooler's minerd.exe located in the same folder as GeoCoin", ERROR, NULL);
     }
 }
 
 void MiningPage::minerFinished()
 {
     if (getMiningType() == ClientModel::SoloMining)
-        reportToList("Solo mining stopped.", ERROR, NULL);
+        reportToList("Virtual Caching finished.", ERROR, NULL);
     else
-        reportToList("Miner exited.", ERROR, NULL);
+        reportToList("Virtual Caching finished.", ERROR, NULL);
     ui->list->addItem("");
     minerActive = false;
     resetMiningButton();
@@ -232,9 +232,9 @@ void MiningPage::minerStarted()
 {
     if (!minerActive)
         if (getMiningType() == ClientModel::SoloMining)
-            reportToList("Solo mining started.", ERROR, NULL);
+            reportToList("Virtual Caching in Progress...", ERROR, NULL);
         else
-            reportToList("Miner started. You might not see any output for a few minutes.", STARTED, NULL);
+            reportToList("Caching started. You might not see any output for a few minutes.", STARTED, NULL);
     minerActive = true;
     resetMiningButton();
     model->setMining(getMiningType(), true, initThreads, 0);
@@ -381,6 +381,6 @@ void MiningPage::debugToggled(bool checked)
 
 void MiningPage::resetMiningButton()
 {
-    ui->startButton->setText(minerActive ? "Stop Mining" : "Start Mining");
+    ui->startButton->setText(minerActive ? "Stop Caching" : "Cache On!");
     enableMiningControls(!minerActive);
 }
