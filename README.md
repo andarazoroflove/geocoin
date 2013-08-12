@@ -4,19 +4,22 @@ Simple cryptographic tokens with messaging for sharing and trading!
 
 Defaults:
 
-*RPC PORT 3870
+*RPC PORT 3990
 
-*P2P PORT 3871
+*P2P PORT 3991
 
-*TESTNET PORT 13871
+*TESTNET PORT 13991
 
 *%appdata%/geocoin/geocoin.conf
 
 *addnode=andarazoroflove.org
 
 
-This release is graphically different from GeoCoin 2.0.
+This release is wholly different from GeoCoin 1.0 and 2.0.
+
 It includes the following refinements:
+
+New block chain.
 
 New Graphics! Program updated with Caching themed icons and lingo.
 
