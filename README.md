@@ -1,4 +1,4 @@
-GeoCoin 2.5
+GeoCoin 3.0
 
 Simple cryptographic tokens with messaging for sharing and trading!
 
@@ -14,12 +14,19 @@ Defaults:
 
 *addnode=andarazoroflove.org
 
-
 This release is wholly different from GeoCoin 1.0 and 2.0.
 
 It includes the following refinements:
 
-New block chain.
+New block chain--Yep, I told you it might happen. All old coins
+are now gone, but hey, you can now cache for new ones! With the release
+to the GroundSpeak community I thought it best to adjust and reboot,
+I promise there will not be any further resets of the blockchain for GeoCoin
+post release of 3.0.
+
+Block target times changed to 3 minutes and block maturation to 25 confirms.
+
+Difficulty adjustment has been altered to allow for CPU mining as long as possible.
 
 New Graphics! Program updated with Caching themed icons and lingo.
 
@@ -36,8 +43,8 @@ by a coin or two in your Collected balance.
 
 GeoCoin has its own Block Explorer at: https://andarazoroflove.org/explorer/geocoin
 
-GeoCoin is Free and Open Source and should not be
-considered "currency." GeoCoin is designed to be easy
-to create with a CPU using a built in "mining" function.
+GeoCoin is Free and Open Source and should not be considered "currency." 
+To that end, 2.5% (25million) of all GeoCoins are pre-cached and held by the 
+developer for use with GeoCoin faucets, giveaways, and other such things. 
 
 For more information: http://andarazoroflove.org/geocoin
