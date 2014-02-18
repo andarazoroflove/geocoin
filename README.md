@@ -1,4 +1,4 @@
-GeoCoin 3.0
+GeoCoin 3.2
 
 Simple cryptographic tokens with messaging for sharing and trading!
 
