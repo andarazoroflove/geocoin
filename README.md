@@ -2,6 +2,8 @@ GeoCoin 3.2
 
 Simple cryptographic tokens with messaging for sharing and trading!
 
+AS OF BLOCK 12314, The Kimoto Gravity Well has been implemented!
+
 Defaults:
 
 *RPC PORT 3990
