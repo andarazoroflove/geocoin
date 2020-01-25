@@ -12,10 +12,6 @@ Defaults:
 
 *TESTNET PORT 13991
 
-*%appdata%/geocoin/geocoin.conf
-
-*addnode=andarazoroflove.org
-
 This release is wholly different from GeoCoin 1.0 and 2.0.
 
 It includes the following refinements:
@@ -43,10 +39,6 @@ that's just trickery. They are still there, but only viewable using
 the Command Line Console for easy math, so values may go up or down
 by a coin or two in your Collected balance.
 
-GeoCoin has its own Block Explorer at: https://andarazoroflove.org/explorer/geocoin
-
 GeoCoin is Free and Open Source and should not be considered "currency." 
 To that end, 2.5% (25million) of all GeoCoins are pre-cached and held by the 
 developer for use with GeoCoin faucets, giveaways, and other such things. 
-
-For more information: http://andarazoroflove.org/geocoin
